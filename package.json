@@ -1,7 +1,8 @@
 {
   "name": "todo-react",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
+  "author": "Binyamin Aron Green",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
