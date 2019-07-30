@@ -22,7 +22,7 @@ export default class App extends React.Component {
     }
 
     handleAddTask(ev) {
-        if(ev.keyCode !== 13) return;
+        if(ev.keyCode !== 13 || ev.target.value === '') return;
 
         let tasks = this.state.tasks;
         tasks[utils.generateId()] = {

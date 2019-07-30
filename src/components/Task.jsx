@@ -14,7 +14,9 @@ export default class Task extends Component {
                     checked={this.props.checked}
                 />
                 <label htmlFor={this.props.id}>{this.props.label}</label>
-                <button onClick={this.props.onDelete} className="task-list__task--delete">&mdash;</button>
+                <button onClick={this.props.onDelete} className="task-list__task--delete">
+                    <box-icon type='regular' name='x' color="salmon" size="18px"></box-icon>
+                </button>
             </li>
         )
     }
