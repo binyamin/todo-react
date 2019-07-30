@@ -7,11 +7,14 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.handleAddTask = this.handleAddTask.bind(this);
+        this.state = {
+            tasks: []
+        }
     }
 
     componentWillMount() {
-        let tasks = JSON.parse(localStorage.getItem('tasks'))
-        this.setState({tasks});
+/*         let tasks = JSON.parse(localStorage.getItem('tasks'))
+        this.setState({tasks}); */
     }
 
     componentWillUnmount() {
