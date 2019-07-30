@@ -6,15 +6,16 @@ import Task from './components/Task';
 export default class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            tasks: {
-                "_pp6mqf3ky": {text: "Walk Dog", state: 1},
-                "_6gse7mxoq": {text: "Text Dad", state: 1},
-                "_u3ec52augt": {text: "Take out garbage", state: 0}
-            }
-        }
-
         this.handleAddTask = this.handleAddTask.bind(this);
+    }
+
+    componentWillMount() {
+        let tasks = JSON.parse(localStorage.getItem('tasks'))
+        this.setState({tasks});
+    }
+
+    componentWillUnmount() {
+        // localStorage.setItem('tasks', JSON.stringify(this.state.tasks))
     }
 
     handleAddTask(ev) {
@@ -36,19 +37,28 @@ export default class App extends React.Component {
         this.setState({tasks})
     }
 
+    handleDelete(id) {
+        let tasks = this.state.tasks;
+        delete tasks[id];
+        this.setState({tasks})
+    }
+
     render() {
         return (
             <React.Fragment>
+                <input className="task-input" type="text" onKeyDown={this.handleAddTask} placeholder="Add your task 📝"/>
                 <Progress
                     value={(Object.entries(this.state.tasks).filter(i => i[1].state !== 0).length / Object.entries(this.state.tasks).length) * 100}
                 />
-                <input type="text" onKeyDown={this.handleAddTask} />
-                <ul>{Object.entries(this.state.tasks).map(item =>{
+                <ul className="task-list">{Object.entries(this.state.tasks).map(item =>{
                         return (<Task 
                             label={item[1].text}
                             key={item[0]}
+                            id={item[0]}
                             checked={item[1].state === 1}
-                            onToggle= {() => this.handleToggle(item[0])}
+                            onEdit={this.handleEdit}
+                            onToggle={() => this.handleToggle(item[0])}
+                            onDelete={() => this.handleDelete(item[0])}
                         />)
                     })}
                 </ul>

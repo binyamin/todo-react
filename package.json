@@ -4,11 +4,16 @@
   "license": "MIT",
   "author": "Binyamin Aron Green",
   "dependencies": {
+    "boxicons": "^2.0.2",
+    "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
   },
+  "homepage": "https://b3u.github.io/todo-react",
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
