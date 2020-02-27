@@ -1,24 +1,16 @@
 import React from 'react';
 import utils from './utils/utils';
-import Progress from './components/Progress';
-import Task from './components/Task';
+import Progress from './components/Progress.jsx';
+import Task from './components/Task.jsx';
+import './css/style.css'
 
 export default class App extends React.Component {
     constructor(props) {
-        super(props);
-        this.handleAddTask = this.handleAddTask.bind(this);
-        this.state = {
-            tasks: []
-        }
-    }
-
-    componentWillMount() {
-/*         let tasks = JSON.parse(localStorage.getItem('tasks'))
-        this.setState({tasks}); */
-    }
-
-    componentWillUnmount() {
-        // localStorage.setItem('tasks', JSON.stringify(this.state.tasks))
+      super(props);
+      this.handleAddTask = this.handleAddTask.bind(this);
+      this.state = {
+        tasks: []
+      }
     }
 
     handleAddTask(ev) {
@@ -54,7 +46,7 @@ export default class App extends React.Component {
                     value={(Object.entries(this.state.tasks).filter(i => i[1].state !== 0).length / Object.entries(this.state.tasks).length) * 100}
                 />
                 <ul className="task-list">{Object.entries(this.state.tasks).map(item =>{
-                        return (<Task 
+                        return (<Task
                             label={item[1].text}
                             key={item[0]}
                             id={item[0]}
