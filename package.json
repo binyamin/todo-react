@@ -4,10 +4,10 @@
   "license": "MIT",
   "author": "Binyamin Aron Green",
   "dependencies": {
-    "boxicons": "^2.0.2",
-    "gh-pages": "^2.0.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "boxicons": "^2.0.5",
+    "gh-pages": "^2.2.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-scripts": "3.0.1"
   },
   "homepage": "https://b3u.github.io/todo-react",
